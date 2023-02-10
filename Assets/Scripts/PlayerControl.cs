@@ -11,7 +11,8 @@ public class PlayerControl : MonoBehaviour
     private float runningCooldown = 3.5f;
     private float timeStamp;
     private float jumpSpeed= 2f;
-    public Rigidbody playerRb;
+    private float xRange= 7.0f;
+    private Rigidbody playerRb;
     // Start is called before the first frame update
     void Start()
     {
@@ -37,4 +38,12 @@ public class PlayerControl : MonoBehaviour
          }
         }
 
-    }
+        if (transform.position.x < -xRange)
+        {
+            transform.position = new Vector3(-xRange, transform.position.y, transform.position.z);
+        }
+        if (transform.position.x > xRange)
+        {
+            transform.position = new Vector3(xRange, transform.position.y, transform.position.z);
+        }   
+    }   
