@@ -13,6 +13,7 @@ public class PlayerControl : MonoBehaviour
     private float xRange = 8.0f;
     private float zRange = 6f;
     private Rigidbody playerRb;
+    public GameObject projectilePrefab;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,9 +23,10 @@ public class PlayerControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //Input
         horizontalInput = Input.GetAxis("Horizontal");
         forwardInput = Input.GetAxis("Vertical");
-
+        //Movement
         transform.Translate(Vector3.forward * Time.deltaTime * speed * forwardInput);
         transform.Translate(Vector3.right * speed * horizontalInput * Time.deltaTime);
 
@@ -38,6 +40,7 @@ public class PlayerControl : MonoBehaviour
             playerRb.AddForce(Vector3.up * Time.deltaTime * jumpSpeed);
         }
 
+        //Barrier
 
         if (transform.position.x < -xRange)
         {
