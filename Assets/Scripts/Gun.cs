@@ -7,6 +7,8 @@ public class Gun : MonoBehaviour
     public GameObject projectilePrefab;
     public float spawnInterval= 10.0f;
     bool cooldown = true;
+    public AudioClip gunSound;
+    private  AudioSource playerAudio;
     // Start is called before the first frame update
     void Start()
     {
@@ -26,6 +28,7 @@ public class Gun : MonoBehaviour
     void Shooting()
     {
         Instantiate(projectilePrefab, transform.position, projectilePrefab.transform.rotation);
+        playerAudio.PlayOneShot(gunSound);
     }
     IEnumerator Burst()
     {

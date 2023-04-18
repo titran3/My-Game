@@ -4,20 +4,23 @@ using UnityEngine;
 
 public class PlayerControl : MonoBehaviour
 {
+    public bool isGameActive { get; private set; }
     private float speed = 5.0f;
-    private float runningSpeed = 6.0f;
+    private float runningSpeed = 5.0f;
     private float horizontalInput;
     private float forwardInput;
-    private float runningCooldown = 3.5f;
-    private float jumpSpeed = 2f;
+    private float jumpSpeed;
     private float xRange = 8.0f;
-    private float zRange = 6f;
+    private float zRange = 3f;
+    private float zRangeUp = 13f;
+    private float gravityModifier = 1f;
     private Rigidbody playerRb;
-    public GameObject projectilePrefab;
     // Start is called before the first frame update
     void Start()
     {
+        isGameActive = true;
         playerRb = GetComponent<Rigidbody>();
+        Physics.gravity *= gravityModifier;
     }
 
     // Update is called once per frame
@@ -32,12 +35,8 @@ public class PlayerControl : MonoBehaviour
 
         if (Input.GetKey(KeyCode.LeftShift))
         {
-            transform.Translate(Vector3.forward * Time.deltaTime * runningSpeed * forwardInput);
-            transform.Translate(Vector3.right * runningSpeed * horizontalInput * Time.deltaTime);
-        }
-        if (Input.GetKey(KeyCode.Space))
-        {
-            playerRb.AddForce(Vector3.up * Time.deltaTime * jumpSpeed);
+            transform.Translate(Vector3.forward * Time.deltaTime * 6 * forwardInput);
+            transform.Translate(Vector3.right * 6 * horizontalInput * Time.deltaTime);
         }
 
         //Barrier
@@ -55,9 +54,18 @@ public class PlayerControl : MonoBehaviour
         {
             transform.position = new Vector3(transform.position.x, transform.position.y, -zRange);
         }
-        if (transform.position.z > zRange)
+        if (transform.position.z > zRangeUp)
         {
-            transform.position = new Vector3(transform.position.x, transform.position.y, zRange);
+            transform.position = new Vector3(transform.position.x, transform.position.y, zRangeUp);
+        }
+    }
+        private void OnCollisionEnter(Collision collision)
+        {
+            // If enemy collides with either goal, destroy it
+            if (collision.gameObject.CompareTag("Ghost"))
+            {
+                Destroy(gameObject);
+                isGameActive = false;
         }
     }
 }
