@@ -30,12 +30,12 @@ public class PlayerControl : MonoBehaviour
         horizontalInput = Input.GetAxis("Horizontal");
         forwardInput = Input.GetAxis("Vertical");
         //Movement
-        transform.Translate(Vector3.forward * Time.deltaTime * speed * forwardInput);
+        transform.Translate(Vector3.down * Time.deltaTime * speed * forwardInput);
         transform.Translate(Vector3.right * speed * horizontalInput * Time.deltaTime);
 
         if (Input.GetKey(KeyCode.LeftShift))
         {
-            transform.Translate(Vector3.forward * Time.deltaTime * 6 * forwardInput);
+            transform.Translate(Vector3.down * Time.deltaTime * 6 * forwardInput);
             transform.Translate(Vector3.right * 6 * horizontalInput * Time.deltaTime);
         }
 
