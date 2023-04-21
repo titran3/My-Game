@@ -15,10 +15,12 @@ public class PlayerControl : MonoBehaviour
     private float zRangeUp = 13f;
     private float gravityModifier = 1f;
     private Rigidbody playerRb;
+    private PlayerStats playerStats;
     // Start is called before the first frame update
     void Start()
     {
         isGameActive = true;
+        playerStats = FindObjectOfType<PlayerStats>();
         playerRb = GetComponent<Rigidbody>();
         Physics.gravity *= gravityModifier;
     }
@@ -59,13 +61,11 @@ public class PlayerControl : MonoBehaviour
             transform.position = new Vector3(transform.position.x, transform.position.y, zRangeUp);
         }
     }
-        private void OnCollisionEnter(Collision collision)
+    private void OnCollisionEnter(Collision other)
+    {
+        if (other.gameObject.CompareTag("Ghost"))
         {
-            // If enemy collides with either goal, destroy it
-            if (collision.gameObject.CompareTag("Ghost"))
-            {
-                Destroy(gameObject);
-                isGameActive = false;
+            PlayerStats.Instance.TakeDamage(10f); // Replace 10f with the amount of damage you want to deal
         }
     }
 }

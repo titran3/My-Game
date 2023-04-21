@@ -17,10 +17,7 @@ public class SpawnManager : MonoBehaviour
     {
         playerControl = FindObjectOfType<PlayerControl>();
 
-        if (playerControl.isGameActive)
-        {
             SpawnRandomAnimal();
-        }
 
         // Update is called once per frame
         void Update()
