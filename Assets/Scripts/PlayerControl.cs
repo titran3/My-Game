@@ -15,12 +15,12 @@ public class PlayerControl : MonoBehaviour
     private float zRangeUp = 13f;
     private float gravityModifier = 1f;
     private Rigidbody playerRb;
-    private PlayerStats playerStats;
+    private HealthBarHUDTester healthControl;
     // Start is called before the first frame update
     void Start()
     {
         isGameActive = true;
-        playerStats = FindObjectOfType<PlayerStats>();
+        healthControl = FindObjectOfType<HealthBarHUDTester>();
         playerRb = GetComponent<Rigidbody>();
         Physics.gravity *= gravityModifier;
     }
@@ -59,13 +59,6 @@ public class PlayerControl : MonoBehaviour
         if (transform.position.z > zRangeUp)
         {
             transform.position = new Vector3(transform.position.x, transform.position.y, zRangeUp);
-        }
-    }
-    private void OnCollisionEnter(Collision other)
-    {
-        if (other.gameObject.CompareTag("Ghost"))
-        {
-            PlayerStats.Instance.TakeDamage(10f); // Replace 10f with the amount of damage you want to deal
         }
     }
 }

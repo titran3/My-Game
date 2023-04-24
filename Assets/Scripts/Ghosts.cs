@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Ghosts : MonoBehaviour
 {
-    public GameObject player;
+    private GameObject player;
     private Rigidbody enemyRb;
     public ParticleSystem explosionParticle;
     public float speed = 0.5f;
