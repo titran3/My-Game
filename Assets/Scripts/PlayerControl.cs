@@ -16,6 +16,10 @@ public class PlayerControl : MonoBehaviour
     private float gravityModifier = 1f;
     private Rigidbody playerRb;
     private HealthBarHUDTester healthControl;
+    public Transform cameraTransform;
+    private float cameraDistance = 10.0f;
+    private float cameraRotateSpeed = 5.0f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -60,5 +64,16 @@ public class PlayerControl : MonoBehaviour
         {
             transform.position = new Vector3(transform.position.x, transform.position.y, zRangeUp);
         }
+
+        // Camera rotation
+        float mouseX = Input.GetAxis("Mouse X") * cameraRotateSpeed;
+
+        transform.rotation *= Quaternion.Euler(0f, 0f, mouseX);
+
+        Vector3 cameraTargetRotation = cameraTransform.rotation.eulerAngles;
+        cameraTargetRotation.x = Mathf.Clamp(cameraTargetRotation.x, -90f, -90f);
+
+        cameraTransform.rotation = Quaternion.Euler(cameraTargetRotation);
+        cameraTransform.position = transform.position - cameraTransform.forward * cameraDistance;
     }
 }

@@ -5,14 +5,15 @@ using UnityEngine;
 public class Gun : MonoBehaviour
 {
     public GameObject projectilePrefab;
-    public float spawnInterval= 10.0f;
+    public float spawnInterval = 10.0f;
     bool cooldown = true;
     public AudioClip gunSound;
-    private  AudioSource playerAudio;
+    private AudioSource playerAudio;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        playerAudio = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -25,11 +26,13 @@ public class Gun : MonoBehaviour
             StartCoroutine(Burst());
         }
     }
+
     void Shooting()
     {
         Instantiate(projectilePrefab, transform.position, projectilePrefab.transform.rotation);
         playerAudio.PlayOneShot(gunSound);
     }
+
     IEnumerator Burst()
     {
         Shooting();

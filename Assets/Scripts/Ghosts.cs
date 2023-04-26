@@ -4,30 +4,34 @@ using UnityEngine;
 
 public class Ghosts : MonoBehaviour
 {
-    private GameObject player;
+    public AudioClip deathSound;
+    private AudioSource playerAudio;
     private Rigidbody enemyRb;
     public ParticleSystem explosionParticle;
     public float speed = 0.5f;
     private float knockback = 100.0f;
     // Start is called before the first frame update
+    private Transform player;
+
     void Start()
     {
-        enemyRb = GetComponent<Rigidbody>();
-        player = GameObject.Find("Player");
+        player = GameObject.FindGameObjectWithTag("Player").transform;
+        playerAudio = GetComponent<AudioSource>();
     }
 
-    // Update is called once per frame
     void Update()
     {
-            Vector3 lookDirection = (player.transform.position - transform.position).normalized;
-            enemyRb.AddForce(lookDirection * speed);
+        Vector3 direction = player.position - transform.position;
+        direction.Normalize();
+        transform.position += direction * speed * Time.deltaTime;
     }
-
     private void OnCollisionEnter(Collision other)
     {
         // If enemy collides with either goal, destroy it
         if (other.gameObject.name == "laser(Clone)")
         {
+            Debug.Log("u got hit ");
+            playerAudio.PlayOneShot(deathSound);
             Instantiate(explosionParticle, transform.position, explosionParticle.transform.rotation);
             Destroy(gameObject, 0.2f);
         }

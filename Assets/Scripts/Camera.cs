@@ -12,6 +12,8 @@ public class Camera : MonoBehaviour
     public float xRange = 1f;
 
     [SerializeField] private Transform target;
+    internal static object main;
+
     // Update is called once per frame
     void LateUpdate()
     {
