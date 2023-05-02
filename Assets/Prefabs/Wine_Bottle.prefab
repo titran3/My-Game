@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1395965034370971410}
   - component: {fileID: 1395965034372101586}
   - component: {fileID: 2713405705793411718}
-  - component: {fileID: 1871003032}
+  - component: {fileID: -6435491197188056708}
   m_Layer: 0
   m_Name: Wine_Bottle
   m_TagString: Untagged
@@ -98,7 +98,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.04504883, y: 0.16594063, z: 0.042844042}
   m_Center: {x: 0.00000000745058, y: -0.00000001490116, z: -0.000000020489097}
---- !u!114 &1871003032
+--- !u!114 &-6435491197188056708
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -107,11 +107,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1395965034374359826}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3eac72fb42d18410db3b37ca1db9ecdd, type: 3}
+  m_Script: {fileID: 11500000, guid: 4277ed60b5cba492a8f6a5f5a5a143c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnObjects:
-  - {fileID: 0}
-  - {fileID: 0}
-  spawnRate: 1
-  spawnRadius: 10
+  wineBottlePrefab: {fileID: 1395965034374359826}
+  spawnPoint: {fileID: 0}
+  spawnTime: 20
