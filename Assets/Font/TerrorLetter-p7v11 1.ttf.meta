@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: e33e4a2f07f4948ac8836cf25359a09d
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Terror Letter
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 3215a206ab6054aed8bd2a97faa70e57, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
