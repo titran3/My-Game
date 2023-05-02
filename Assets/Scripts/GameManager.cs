@@ -7,9 +7,7 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-    public GameObject targets;
-    private float spawnRangeX = 10;
-    private float spawnRangeZ = 20;
+    public List<GameObject> targets;
     public TextMeshProUGUI gameOverText;
     public Button restartButton;
     public GameObject titleScreen;
@@ -34,9 +32,8 @@ public class GameManager : MonoBehaviour
         while (isGameActive)
         {
             yield return new WaitForSeconds(spawnRate);
-            Vector3 spawnPos = new Vector3(Random.Range(-spawnRangeX, spawnRangeX), 1, spawnRangeZ);
-
-            Instantiate(targets, spawnPos, targets.transform.rotation);
+            int index = Random.Range(0, targets.Count);
+            Instantiate(targets[index]);
         }
     }
     public void GameOver()
