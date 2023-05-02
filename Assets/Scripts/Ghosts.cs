@@ -5,7 +5,7 @@ using UnityEngine;
 public class Ghosts : MonoBehaviour
 {
     public AudioClip deathSound;
-    private AudioSource playerAudio;
+    public AudioSource playerAudio;
     private Rigidbody enemyRb;
     public ParticleSystem explosionParticle;
     public float speed = 0.5f;
