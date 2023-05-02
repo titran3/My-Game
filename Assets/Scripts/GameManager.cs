@@ -8,8 +8,9 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
     public GameObject targets;
-    public TextMeshProUGUI gameOverText;
+
     public Button restartButton;
+    public GameObject gameOver;
     private float spawnRangeX = 10;
     private float spawnRangeZ = 20;
     public GameObject titleScreen;
@@ -42,7 +43,7 @@ public class GameManager : MonoBehaviour
     public void GameOver()
     {
         restartButton.gameObject.SetActive(true);
-        gameOverText.gameObject.SetActive(true);
+        gameOver.gameObject.SetActive(true);
         isGameActive = false;
     }
     public void RestartGame()
