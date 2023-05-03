@@ -19,9 +19,11 @@ public class GameManager : MonoBehaviour
     private int score;
     public bool isGameActive;
     public int difficulty;
+    private AudioSource audioSource;
     // Start is called before the first frame update
     void Start()
     {
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -52,6 +54,7 @@ public class GameManager : MonoBehaviour
     }
     public void StartGame(int difficulty)
     {
+        audioSource.Stop();
         titleScreen.gameObject.SetActive(false);
         isGameActive = true;
         health.gameObject.SetActive(true);
