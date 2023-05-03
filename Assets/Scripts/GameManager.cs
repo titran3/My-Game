@@ -11,10 +11,12 @@ public class GameManager : MonoBehaviour
 
     public Button restartButton;
     public GameObject gameOver;
+    public GameObject wine;
     private float spawnRangeX = 10;
     private float spawnRangeZ = 20;
     public GameObject titleScreen;
     public GameObject health;
+    private float winespawnRate = 10.0f;
     private float spawnRate = 1.0f;
     private int score;
     public bool isGameActive;
@@ -58,5 +60,17 @@ public class GameManager : MonoBehaviour
         spawnRate = spawnRate / difficulty;
 
         StartCoroutine(SpawnTarget());
+        StartCoroutine(SpawnWine());
+    }
+
+    IEnumerator SpawnWine()
+    {
+        while (isGameActive)
+        {
+            yield return new WaitForSeconds(winespawnRate);
+            Vector3 spawnPos = new Vector3(Random.Range(-15, 0), 1, Random.Range(0, 15));
+
+            Instantiate(wine, spawnPos, wine.transform.rotation);
+        }
     }
 }

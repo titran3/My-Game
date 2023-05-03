@@ -15812,6 +15812,7 @@ MonoBehaviour:
   targets: {fileID: 4029489341119056380, guid: 86f76a47f168e44428308455f5749744, type: 3}
   restartButton: {fileID: 672463159}
   gameOver: {fileID: 1674289115}
+  wine: {fileID: 5822492506089461634, guid: 29f37633d7e2d478fbab1d00725e3990, type: 3}
   titleScreen: {fileID: 887641187}
   health: {fileID: 1937534529}
   isGameActive: 0
@@ -21071,7 +21072,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1527590885}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.000000043551, y: 0.582, z: 1.95}
+  m_LocalPosition: {x: 0.000000043551, y: 0.582, z: 2.28}
   m_LocalScale: {x: 0.26933694, y: 0.42153922, z: 0.26933694}
   m_ConstrainProportionsScale: 0
   m_Children: []
