@@ -19,6 +19,7 @@ public class PlayerControl : MonoBehaviour
     public Transform cameraTransform;
     private float cameraDistance = 10.0f;
     private float cameraRotateSpeed = 5.0f;
+    public bool hasPowerup = false;
 
     // Start is called before the first frame update
     void Start()
@@ -75,5 +76,20 @@ public class PlayerControl : MonoBehaviour
 
         cameraTransform.rotation = Quaternion.Euler(cameraTargetRotation);
         cameraTransform.position = transform.position - cameraTransform.forward * cameraDistance;
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Powerup"))
+        {
+            hasPowerup = true;
+            Destroy(other.gameObject);
+        }
+    }
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Ghost") && hasPowerup)
+        {
+            Debug.Log("Collided with " + collision.gameObject.name + " with powerup set to " + hasPowerup);
+        }
     }
 }

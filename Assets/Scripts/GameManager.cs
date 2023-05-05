@@ -68,7 +68,7 @@ public class GameManager : MonoBehaviour
         while (isGameActive)
         {
             yield return new WaitForSeconds(winespawnRate);
-            Vector3 spawnPos = new Vector3(Random.Range(-15, 0), 1, Random.Range(0, 15));
+            Vector3 spawnPos = new Vector3(Random.Range(-7, 7), 1, Random.Range(3, 13));
 
             Instantiate(wine, spawnPos, wine.transform.rotation);
         }
