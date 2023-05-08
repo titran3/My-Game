@@ -12,9 +12,11 @@ public class HealthScript : MonoBehaviour
     public Image[] hearts;
     public Sprite fullHeart;
     public Sprite emptyHeart;
+    private GameManager gameManager;
 
     private void Start()
     {
+        gameManager = GameObject.Find("Game Manager").GetComponent<GameManager>();
         currentHealth = maxHealth;
         UpdateHeartsUI();
     }
@@ -28,6 +30,8 @@ public class HealthScript : MonoBehaviour
             UpdateHeartsUI();
             if (currentHealth <= 0)
             {
+                gameManager.GameOver();
+
                 Destroy(player);
             }
         }
