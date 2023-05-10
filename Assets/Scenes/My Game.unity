@@ -24006,6 +24006,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cameraTransform: {fileID: 0}
+  hasPowerup: 0
 --- !u!4 &1661540465 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: e72058d0a9d8a4a598d91336e7748b52, type: 3}
@@ -26005,6 +26006,63 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 9069115365609054727, guid: 60f79905accf3b24fa0114b941f1aac0, type: 3}
   m_PrefabInstance: {fileID: 22900085}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1782846877
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5822492506089163682, guid: 29f37633d7e2d478fbab1d00725e3990, type: 3}
+      propertyPath: m_RootOrder
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 5822492506089163682, guid: 29f37633d7e2d478fbab1d00725e3990, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5822492506089163682, guid: 29f37633d7e2d478fbab1d00725e3990, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.593
+      objectReference: {fileID: 0}
+    - target: {fileID: 5822492506089163682, guid: 29f37633d7e2d478fbab1d00725e3990, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 3.27
+      objectReference: {fileID: 0}
+    - target: {fileID: 5822492506089163682, guid: 29f37633d7e2d478fbab1d00725e3990, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.9006039
+      objectReference: {fileID: 0}
+    - target: {fileID: 5822492506089163682, guid: 29f37633d7e2d478fbab1d00725e3990, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.32156134
+      objectReference: {fileID: 0}
+    - target: {fileID: 5822492506089163682, guid: 29f37633d7e2d478fbab1d00725e3990, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.19745466
+      objectReference: {fileID: 0}
+    - target: {fileID: 5822492506089163682, guid: 29f37633d7e2d478fbab1d00725e3990, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.21569066
+      objectReference: {fileID: 0}
+    - target: {fileID: 5822492506089163682, guid: 29f37633d7e2d478fbab1d00725e3990, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -41.635
+      objectReference: {fileID: 0}
+    - target: {fileID: 5822492506089163682, guid: 29f37633d7e2d478fbab1d00725e3990, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -16.874
+      objectReference: {fileID: 0}
+    - target: {fileID: 5822492506089163682, guid: 29f37633d7e2d478fbab1d00725e3990, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -20.481
+      objectReference: {fileID: 0}
+    - target: {fileID: 5822492506089461634, guid: 29f37633d7e2d478fbab1d00725e3990, type: 3}
+      propertyPath: m_Name
+      value: Powerup
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 29f37633d7e2d478fbab1d00725e3990, type: 3}
 --- !u!4 &1782858327 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9069115365609054727, guid: 60f79905accf3b24fa0114b941f1aac0, type: 3}

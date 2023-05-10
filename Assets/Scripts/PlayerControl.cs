@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerControl : MonoBehaviour
 {
     public bool isGameActive { get; private set; }
-    private float speed = 5.0f;
+    public float speed = 5.0f;
     private float runningSpeed = 5.0f;
     private float horizontalInput;
     private float forwardInput;
@@ -20,6 +20,7 @@ public class PlayerControl : MonoBehaviour
     private float cameraDistance = 10.0f;
     private float cameraRotateSpeed = 5.0f;
     public bool hasPowerup = false;
+    public float speedBoost = 20f;
 
     // Start is called before the first frame update
     void Start()
@@ -77,12 +78,13 @@ public class PlayerControl : MonoBehaviour
         cameraTransform.rotation = Quaternion.Euler(cameraTargetRotation);
         cameraTransform.position = transform.position - cameraTransform.forward * cameraDistance;
     }
-    private void OnTriggerEnter(Collider other)
+    void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Powerup"))
+        if (other.CompareTag("Powerup")) // Check if the object that collided with the powerup is the player.
         {
             hasPowerup = true;
             Destroy(other.gameObject);
         }
     }
 }
+
