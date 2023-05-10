@@ -5,7 +5,7 @@ using UnityEngine;
 public class Ghosts : MonoBehaviour
 {
     public AudioClip deathSound;
-    private AudioSource playerAudio;
+    public AudioSource playerAudio;
     private Rigidbody enemyRb;
     public ParticleSystem explosionParticle;
     public float speed = 0.5f;
@@ -30,9 +30,11 @@ public class Ghosts : MonoBehaviour
         // If enemy collides with either goal, destroy it
         if (other.gameObject.name == "laser(Clone)")
         {
+            gameObject.tag = "Dead";
             playerAudio.PlayOneShot(deathSound);
             Instantiate(explosionParticle, transform.position, explosionParticle.transform.rotation);
-            Destroy(gameObject, 0.2f);
+            transform.position += new Vector3(0, -10, 0);
+            Destroy(gameObject, deathSound.length);
         }
 
     }

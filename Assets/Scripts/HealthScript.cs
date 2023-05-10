@@ -9,6 +9,8 @@ public class HealthScript : MonoBehaviour
     public int currentHealth;
 
     public GameObject player;
+    public AudioClip deathSound;
+    public AudioSource audioSource;
     public Image[] hearts;
     public Sprite fullHeart;
     public Sprite emptyHeart;
@@ -16,6 +18,7 @@ public class HealthScript : MonoBehaviour
 
     private void Start()
     {
+        audioSource = GetComponent<AudioSource>();
         gameManager = GameObject.Find("Game Manager").GetComponent<GameManager>();
         currentHealth = maxHealth;
         UpdateHeartsUI();
@@ -27,6 +30,7 @@ public class HealthScript : MonoBehaviour
         {
             Debug.Log("you got hit");
             currentHealth--;
+            audioSource.PlayOneShot(deathSound);
             UpdateHeartsUI();
             if (currentHealth <= 0)
             {
