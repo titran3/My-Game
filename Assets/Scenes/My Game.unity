@@ -28317,7 +28317,7 @@ MonoBehaviour:
 <<<<<<< HEAD
   maxBullets: 30
   reloadTime: 1
-  gunSound: {fileID: 8300000, guid: 59a69941e54c14a2fb00dc1e44ee40b5, type: 3}
+  gunSound: {fileID: 8300000, guid: 92d35fe1c59bbd14eaee9e3d3b54cea7, type: 3}
   reloadSound: {fileID: 8300000, guid: 8f268095f67575b44b10ea19a4482b2c, type: 3}
 =======
   gunSound: {fileID: 8300000, guid: 92d35fe1c59bbd14eaee9e3d3b54cea7, type: 3}
@@ -28431,7 +28431,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 1
-  m_Pitch: 2.5
+  m_Pitch: 1
   Loop: 0
   Mute: 0
   Spatialize: 0
