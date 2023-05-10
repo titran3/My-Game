@@ -30,11 +30,11 @@ public class Ghosts : MonoBehaviour
         // If enemy collides with either goal, destroy it
         if (other.gameObject.name == "laser(Clone)")
         {
-            gameObject.tag = "DestroyedEnemy";
+            Debug.Log("u got hit ");
             playerAudio.PlayOneShot(deathSound);
             Instantiate(explosionParticle, transform.position, explosionParticle.transform.rotation);
-            GetComponent<Renderer>().enabled = false; // Disable visibility
-            Destroy(gameObject, deathSound.length - 0.2f); // Destroy after audio length + a small delay
+            Destroy(gameObject, 0.2f);
         }
+
     }
 }

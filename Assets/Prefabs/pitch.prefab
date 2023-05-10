@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4263491460776831406}
   - component: {fileID: 4263491460776831410}
   - component: {fileID: 4263491460776831407}
-  - component: {fileID: 2225568524541919894}
+  - component: {fileID: -4344128878492489554}
   m_Layer: 0
   m_Name: pitch
   m_TagString: Ghost
@@ -129,11 +129,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eba2a23d75ad5483f99a0d40ba755407, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  deathSound: {fileID: 8300000, guid: 0aac788fbd923474580272be3bf18877, type: 3}
-  playerAudio: {fileID: 2225568524541919894}
+  deathSound: {fileID: 8300000, guid: ff2306eca8ab44aa399241f49d3d8f91, type: 3}
   explosionParticle: {fileID: 15085447402717889, guid: 743ce290c74ae49c19aa3f128322fc7e, type: 3}
   speed: 3
---- !u!82 &2225568524541919894
+--- !u!82 &-4344128878492489554
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -147,11 +146,11 @@ AudioSource:
   m_PlayOnAwake: 0
   m_Volume: 0.25
   m_Pitch: 1
-  Loop: 1
+  Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 55
+  Priority: 128
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500

@@ -12,8 +12,6 @@ public class HealthScript : MonoBehaviour
     public Image[] hearts;
     public Sprite fullHeart;
     public Sprite emptyHeart;
-    public AudioSource playerAudio;
-    public AudioClip deathClip;
     private GameManager gameManager;
 
     private void Start()
@@ -30,14 +28,13 @@ public class HealthScript : MonoBehaviour
             Debug.Log("you got hit");
             currentHealth--;
             UpdateHeartsUI();
-            playerAudio.PlayOneShot(deathClip); // Play the deathClip
             if (currentHealth <= 0)
             {
                 gameManager.GameOver();
+
                 Destroy(player);
             }
         }
-
     }
 
     void UpdateHeartsUI()
