@@ -13,15 +13,18 @@ public class Gun : MonoBehaviour
     bool cooldown = true;
     bool bursting = false;
     public AudioClip gunSound;
+    private GameManager gameManager;
     public AudioClip reloadSound;
     private AudioSource playerAudio;
 
     // Start is called before the first frame update
     void Start()
     {
-        bullets = maxBullets;
+        gameManager = GameObject.Find("Game Manager").GetComponent<GameManager>();
         playerAudio = GetComponent<AudioSource>();
+        bullets = maxBullets;
     }
+
 
     // Update is called once per frame
     void Update()
