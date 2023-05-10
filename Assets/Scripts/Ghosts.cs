@@ -5,7 +5,7 @@ using UnityEngine;
 public class Ghosts : MonoBehaviour
 {
     public AudioClip deathSound;
-    public AudioSource playerAudio;
+    private AudioSource playerAudio;
     private Rigidbody enemyRb;
     public ParticleSystem explosionParticle;
     public float speed = 0.5f;
@@ -30,11 +30,10 @@ public class Ghosts : MonoBehaviour
         // If enemy collides with either goal, destroy it
         if (other.gameObject.name == "laser(Clone)")
         {
-            gameObject.tag = "DestroyedEnemy";
             playerAudio.PlayOneShot(deathSound);
             Instantiate(explosionParticle, transform.position, explosionParticle.transform.rotation);
-            GetComponent<Renderer>().enabled = false; // Disable visibility
-            Destroy(gameObject, deathSound.length - 0.2f); // Destroy after audio length + a small delay
+            Destroy(gameObject, 0.2f);
         }
+
     }
 }
