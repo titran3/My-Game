@@ -29,7 +29,8 @@ public class Gun : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        while (gameManager.isGameActive) {
+        if (gameManager.isGameActive)
+        {
             // Shooting Gun
             if ((Input.GetKey(KeyCode.Mouse0) || Input.GetKey(KeyCode.Mouse1) || Input.GetKey(KeyCode.Space)) && cooldown && !reloading && bullets > 0)
             {
@@ -40,14 +41,16 @@ public class Gun : MonoBehaviour
                 {
                     StartCoroutine(Burst());
                 }
-            } }
+            }
 
-        // Reload Gun
-        if (Input.GetKeyDown(KeyCode.R) && !reloading && bullets < maxBullets)
-        {
-            StartCoroutine(Reload());
+            // Reload Gun
+            if (Input.GetKeyDown(KeyCode.R) && !reloading && bullets < maxBullets)
+            {
+                StartCoroutine(Reload());
+            }
         }
     }
+
 
     void Shooting()
     {
@@ -106,8 +109,7 @@ public class Gun : MonoBehaviour
 
     void OnGUI()
     {
-        // Display current bullets in bottom right corner of screen
-        GUI.Label(new Rect(Screen.width - 110, Screen.height - 30, 100, 20), "Bullets: " + bullets);
+            // Display current bullets in bottom right corner of screen
+            GUI.Label(new Rect(Screen.width - 110, Screen.height - 30, 100, 20), "Bullets: " + bullets);
     }
-
 }
