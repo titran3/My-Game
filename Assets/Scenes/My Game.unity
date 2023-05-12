@@ -759,11 +759,11 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 887641191}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 230, y: 77}
+  m_AnchoredPosition: {x: -251, y: 77}
   m_SizeDelta: {x: 344.3497, y: 62.2561}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &27527217
@@ -1427,7 +1427,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 230, y: 0.000058078}
+  m_AnchoredPosition: {x: -250.99994, y: 0.000058078}
   m_SizeDelta: {x: 91.5957, y: 23.4853}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &63638853
@@ -1841,7 +1841,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &80850942
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4391,11 +4391,11 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 887641191}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -194, y: 0.000061035156}
+  m_AnchoredPosition: {x: 231, y: 0.000061035156}
   m_SizeDelta: {x: -463.1073, y: 0.0001}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &203090900
@@ -13803,8 +13803,8 @@ RectTransform:
   - {fileID: 63638852}
   - {fileID: 2035942646}
   - {fileID: 2074393281}
-  - {fileID: 203090899}
   - {fileID: 27527216}
+  - {fileID: 203090899}
   - {fileID: 868299317}
   m_Father: {fileID: 0}
   m_RootOrder: 7
@@ -16230,7 +16230,7 @@ MonoBehaviour:
   titleScreen: {fileID: 887641187}
   wave: {fileID: 466632636}
   waveScreen: {fileID: 80850941}
-  waveSound: {fileID: 8300000, guid: 7bedf8a3f861e4de7af7cebf1696cd3b, type: 3}
+  waveSound: {fileID: 8300000, guid: ce481c9d63517a144b80f3453355b531, type: 3}
   health: {fileID: 1937534529}
   isGameActive: 0
   difficulty: 0
@@ -30179,7 +30179,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 230, y: -40}
+  m_AnchoredPosition: {x: -250.99994, y: -40}
   m_SizeDelta: {x: 125.8, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2035942647
@@ -31219,7 +31219,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 230, y: -80}
+  m_AnchoredPosition: {x: -250.99994, y: -80}
   m_SizeDelta: {x: 106.8903, y: 31.3618}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2074393282
