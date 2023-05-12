@@ -29,17 +29,18 @@ public class Gun : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // Shooting Gun
-        if ((Input.GetKey(KeyCode.Mouse0) || Input.GetKey(KeyCode.Mouse1) || Input.GetKey(KeyCode.Space)) && cooldown && !reloading && bullets > 0)
-        {
-            StartCoroutine(Cooldown());
-
-            // Only call Burst() once if any input is detected
-            if (!bursting)
+        while (gameManager.isGameActive) {
+            // Shooting Gun
+            if ((Input.GetKey(KeyCode.Mouse0) || Input.GetKey(KeyCode.Mouse1) || Input.GetKey(KeyCode.Space)) && cooldown && !reloading && bullets > 0)
             {
-                StartCoroutine(Burst());
-            }
-        }
+                StartCoroutine(Cooldown());
+
+                // Only call Burst() once if any input is detected
+                if (!bursting)
+                {
+                    StartCoroutine(Burst());
+                }
+            } }
 
         // Reload Gun
         if (Input.GetKeyDown(KeyCode.R) && !reloading && bullets < maxBullets)
