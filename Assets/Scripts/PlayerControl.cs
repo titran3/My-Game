@@ -86,5 +86,12 @@ public class PlayerControl : MonoBehaviour
             Destroy(other.gameObject);
         }
     }
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Ghost") && hasPowerup)
+        {
+            Debug.Log("Collided with " + collision.gameObject.name + " with powerup set to " + hasPowerup);
+        }
+    }
 }
 
