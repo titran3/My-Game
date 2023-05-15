@@ -15425,7 +15425,7 @@ RectTransform:
   m_GameObject: {fileID: 993704204}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 7, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 299711441}
@@ -16227,10 +16227,11 @@ MonoBehaviour:
   targets: {fileID: 4029489341119056380, guid: 86f76a47f168e44428308455f5749744, type: 3}
   restartButton: {fileID: 672463159}
   gameOver: {fileID: 1674289115}
+  wine: {fileID: 9115134720672429939, guid: bf6636bfd427d4cfba2182d070cce495, type: 3}
   titleScreen: {fileID: 887641187}
   wave: {fileID: 466632636}
   waveScreen: {fileID: 80850941}
-  waveSound: {fileID: 8300000, guid: ce481c9d63517a144b80f3453355b531, type: 3}
+  waveSound: {fileID: 8300000, guid: 1e940d15337ad1e43b0cc1b2430d7c06, type: 3}
   health: {fileID: 1937534529}
   isGameActive: 0
   difficulty: 0
@@ -21585,7 +21586,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1527590885}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.000000043551, y: 0.582, z: 1.95}
+  m_LocalPosition: {x: 0.000000043551, y: 0.582, z: 2.28}
   m_LocalScale: {x: 0.26933694, y: 0.42153922, z: 0.26933694}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -24518,7 +24519,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0bba6f5c18874b898451684e16c5cb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 5
   cameraTransform: {fileID: 0}
+  hasPowerup: 0
+  speedBoost: 20
 --- !u!4 &1661540465 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: e72058d0a9d8a4a598d91336e7748b52, type: 3}
@@ -28799,9 +28803,9 @@ MonoBehaviour:
   projectilePrefab: {fileID: 6694518270193404891, guid: 8bc47defa083740be8d81aeb9a0805ed, type: 3}
   spawnInterval: 0
   maxBullets: 30
-  reloadTime: 1
+  reloadTime: 2
   gunSound: {fileID: 8300000, guid: 19ff86ff23f0441c78ceaf86a106ff82, type: 3}
-  reloadSound: {fileID: 8300000, guid: 8f268095f67575b44b10ea19a4482b2c, type: 3}
+  reloadSound: {fileID: 0}
 --- !u!82 &1956805349
 AudioSource:
   m_ObjectHideFlags: 0

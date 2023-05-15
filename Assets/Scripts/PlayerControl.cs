@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerControl : MonoBehaviour
 {
     public bool isGameActive { get; private set; }
-    private float speed = 5.0f;
+    public float speed = 5.0f;
     private float runningSpeed = 5.0f;
     private float horizontalInput;
     private float forwardInput;
@@ -19,6 +19,8 @@ public class PlayerControl : MonoBehaviour
     public Transform cameraTransform;
     private float cameraDistance = 10.0f;
     private float cameraRotateSpeed = 5.0f;
+    public bool hasPowerup = false;
+    public float speedBoost = 20f;
 
     // Start is called before the first frame update
     void Start()
@@ -38,12 +40,6 @@ public class PlayerControl : MonoBehaviour
         //Movement
         transform.Translate(Vector3.down * Time.deltaTime * speed * forwardInput);
         transform.Translate(Vector3.right * speed * horizontalInput * Time.deltaTime);
-
-        if (Input.GetKey(KeyCode.LeftShift))
-        {
-            transform.Translate(Vector3.down * Time.deltaTime * 6 * forwardInput);
-            transform.Translate(Vector3.right * 6 * horizontalInput * Time.deltaTime);
-        }
 
         //Barrier
 
@@ -76,4 +72,20 @@ public class PlayerControl : MonoBehaviour
         cameraTransform.rotation = Quaternion.Euler(cameraTargetRotation);
         cameraTransform.position = transform.position - cameraTransform.forward * cameraDistance;
     }
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Powerup")) // Check if the object that collided with the powerup is the player.
+        {
+            hasPowerup = true;
+            Destroy(other.gameObject);
+        }
+    }
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Ghost") && hasPowerup)
+        {
+            Debug.Log("Collided with " + collision.gameObject.name + " with powerup set to " + hasPowerup);
+        }
+    }
 }
+

@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
 
     public Button restartButton;
     public GameObject gameOver;
+    public GameObject wine;
     private float spawnRangeX = 10;
     private float spawnRangeZ = 20;
     public GameObject titleScreen;
@@ -18,6 +19,7 @@ public class GameManager : MonoBehaviour
     public GameObject waveScreen;
     public AudioClip waveSound;
     public GameObject health;
+    private float winespawnRate = 10.0f;
     private float spawnRate = 1.0f;
     private int score;
     public bool isGameActive;
@@ -93,6 +95,18 @@ public class GameManager : MonoBehaviour
         waveScreen.gameObject.SetActive(true);
         StartCoroutine(FadeIn(wave.GetComponent<TextMeshProUGUI>(), 0.5f, 1f));
         StartCoroutine(SpawnTarget());
+        StartCoroutine(SpawnWine());
+    }
+
+    IEnumerator SpawnWine()
+    {
+        while (isGameActive)
+        {
+            yield return new WaitForSeconds(winespawnRate);
+            Vector3 spawnPos = new Vector3(Random.Range(-7, 7), 1, Random.Range(3, 13));
+
+            Instantiate(wine, spawnPos, wine.transform.rotation);
+        }
     }
 
     IEnumerator FadeIn(TextMeshProUGUI text, float duration, float targetAlpha)

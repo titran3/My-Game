@@ -81,7 +81,7 @@ public class Gun : MonoBehaviour
             playerAudio.PlayOneShot(gunSound);
         }
 
-        yield return new WaitForSeconds(0.15F);
+        yield return new WaitForSeconds(0.35F);
         bursting = false;
     }
 

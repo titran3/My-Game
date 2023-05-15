@@ -11,4 +11,14 @@ public class MoveForward : MonoBehaviour
         //Moves forward
         transform.Translate(Vector3.up * Time.deltaTime * speed);
     }
+
+    private void OnCollisionEnter(Collision other)
+    {
+        // If enemy collides with either goal, destroy it
+        if (other.gameObject.name == "pitch(Clone)")
+        {
+            Destroy(gameObject);
+        }
+
+    }
 }
