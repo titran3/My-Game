@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,7 +6,6 @@ public class HealthScript : MonoBehaviour
     public int maxHealth = 3;
     public int currentHealth;
 
-    public GameObject player;
     public Image[] hearts;
     public Sprite fullHeart;
     public Sprite emptyHeart;
@@ -21,6 +18,15 @@ public class HealthScript : MonoBehaviour
         UpdateHeartsUI();
     }
 
+    public void IncreaseHealth()
+    {
+        if (currentHealth < maxHealth)
+        {
+            currentHealth++;
+            UpdateHeartsUI();
+        }
+    }
+
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Ghost"))
@@ -31,8 +37,7 @@ public class HealthScript : MonoBehaviour
             if (currentHealth <= 0)
             {
                 gameManager.GameOver();
-
-                Destroy(player);
+                Destroy(gameObject);
             }
         }
     }
@@ -44,12 +49,12 @@ public class HealthScript : MonoBehaviour
             if (i < currentHealth)
             {
                 hearts[i].sprite = fullHeart;
-                hearts[i].enabled = true; // show the heart
+                hearts[i].enabled = true;
             }
             else
             {
                 hearts[i].sprite = emptyHeart;
-                hearts[i].enabled = false; // hide the heart
+                hearts[i].enabled = false;
             }
         }
     }
