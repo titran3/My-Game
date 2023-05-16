@@ -38,4 +38,8 @@ public class Ghosts : MonoBehaviour
         }
 
     }
+    public void UpdateGhostSpeed(float speedMultiplier)
+    {
+        speed *= speedMultiplier;
+    }
 }

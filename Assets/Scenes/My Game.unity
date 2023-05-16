@@ -16231,10 +16231,11 @@ MonoBehaviour:
   titleScreen: {fileID: 887641187}
   wave: {fileID: 466632636}
   waveScreen: {fileID: 80850941}
-  waveSound: {fileID: 8300000, guid: 1e940d15337ad1e43b0cc1b2430d7c06, type: 3}
+  waveSound: {fileID: 8300000, guid: 83eb2819138fa4a47baeea2be22e2227, type: 3}
   health: {fileID: 1937534529}
   isGameActive: 0
   difficulty: 0
+  ghost: {fileID: 0}
 --- !u!4 &1096424267
 Transform:
   m_ObjectHideFlags: 0

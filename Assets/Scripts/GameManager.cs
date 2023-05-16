@@ -8,7 +8,6 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
     public GameObject targets;
-
     public Button restartButton;
     public GameObject gameOver;
     public GameObject wine;
@@ -25,54 +24,81 @@ public class GameManager : MonoBehaviour
     public bool isGameActive;
     public int difficulty;
     private AudioSource audioSource;
+    public Ghosts ghost;
+
+    private int currentWave = 1;
+    private int targetsToSpawn = 30;
+    private int activeEnemies = 0;
+
     // Start is called before the first frame update
     void Start()
     {
+        ghost = GetComponent<Ghosts>();
         audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        CheckEnemies();
     }
 
     IEnumerator SpawnTarget()
     {
-        int wave = 1;
-        int targetsToSpawn = 30;
-
         while (isGameActive)
         {
             for (int i = 0; i < targetsToSpawn; i++)
             {
                 Vector3 spawnPos = new Vector3(Random.Range(-spawnRangeX, spawnRangeX), 1, spawnRangeZ);
-
                 Instantiate(targets, spawnPos, targets.transform.rotation);
+                activeEnemies++;
                 yield return new WaitForSeconds(0.5f); // wait half a second between each target
             }
 
-            wave++;
-            if (wave == 2)
+            yield return new WaitWhile(() => activeEnemies > 0); // Wait until all enemies are defeated
+
+            currentWave++;
+            if (currentWave == 2)
             {
+                audioSource.PlayOneShot(waveSound);
+                waveScreen.gameObject.SetActive(true);
+                wave.SetText("Wave " + currentWave.ToString());
+                StartCoroutine(FadeIn(wave.GetComponent<TextMeshProUGUI>(), 0.5f, 1f));
                 targetsToSpawn = 60;
+                ghost.UpdateGhostSpeed(currentWave);
             }
-            else if (wave == 3)
+            else if (currentWave == 3)
             {
+                audioSource.PlayOneShot(waveSound);
+                waveScreen.gameObject.SetActive(true);
+                wave.SetText("Wave " + currentWave.ToString());
+                StartCoroutine(FadeIn(wave.GetComponent<TextMeshProUGUI>(), 0.5f, 1f));
                 targetsToSpawn = 70;
+                ghost.UpdateGhostSpeed(currentWave);
             }
-            else if (wave > 3)
+            else if (currentWave > 3)
             {
-                // increase spawn rate and difficulty for subsequent waves
-                spawnRate *= 0.9f; // reduce spawn rate by 10%
-                targetsToSpawn = Mathf.RoundToInt(targetsToSpawn * 1.2f); // increase number of targets by 20%
+                audioSource.PlayOneShot(waveSound);
+                waveScreen.gameObject.SetActive(true);
+                wave.SetText("Wave " + currentWave.ToString());
+                StartCoroutine(FadeIn(wave.GetComponent<TextMeshProUGUI>(), 0.5f, 1f)); 
+                spawnRate *= 0.9f;
+                targetsToSpawn = Mathf.RoundToInt(targetsToSpawn * 1.2f);
             }
 
-            yield return new WaitForSeconds(2f); // wait 2 seconds between waves
+            yield return new WaitForSeconds(0.5f);
+
+            CheckEnemies();
         }
     }
 
-    public void GameOver()
+    void CheckEnemies()
+    {
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Ghost");
+        activeEnemies = enemies.Length;
+    }
+
+public void GameOver()
     {
         restartButton.gameObject.SetActive(true);
         gameOver.gameObject.SetActive(true);
