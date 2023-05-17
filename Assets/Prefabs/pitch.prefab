@@ -132,7 +132,8 @@ MonoBehaviour:
   deathSound: {fileID: 8300000, guid: 7bedf8a3f861e4de7af7cebf1696cd3b, type: 3}
   playerAudio: {fileID: 2225568524541919894}
   explosionParticle: {fileID: 15085447402717889, guid: 743ce290c74ae49c19aa3f128322fc7e, type: 3}
-  speed: 3
+  gameManager: {fileID: 0}
+  speed: 0.5
 --- !u!82 &2225568524541919894
 AudioSource:
   m_ObjectHideFlags: 0

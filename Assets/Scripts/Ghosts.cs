@@ -8,15 +8,18 @@ public class Ghosts : MonoBehaviour
     public AudioSource playerAudio;
     private Rigidbody enemyRb;
     public ParticleSystem explosionParticle;
-    public float speed = 0.5f;
-    private float knockback = 100.0f;
-    // Start is called before the first frame update
+    public GameManager gameManager;
+    public int speed = 3;
+
     private Transform player;
+    private float originalSpeed;
 
     void Start()
     {
+        gameManager = GetComponent<GameManager>();
         player = GameObject.FindGameObjectWithTag("Player").transform;
         playerAudio = GetComponent<AudioSource>();
+        originalSpeed = speed;
     }
 
     void Update()
@@ -24,10 +27,16 @@ public class Ghosts : MonoBehaviour
         Vector3 direction = player.position - transform.position;
         direction.Normalize();
         transform.position += direction * speed * Time.deltaTime;
+
     }
+
+    public void IncreaseSpeed(float speedMultiplier)
+    {
+        speed = originalSpeed * speedMultiplier;
+    }
+
     private void OnCollisionEnter(Collision other)
     {
-        // If enemy collides with either goal, destroy it
         if (other.gameObject.name == "laser(Clone)")
         {
             gameObject.tag = "Dead";
@@ -36,10 +45,5 @@ public class Ghosts : MonoBehaviour
             transform.position += new Vector3(0, -10, 0);
             Destroy(gameObject, deathSound.length);
         }
-
-    }
-    public void UpdateGhostSpeed(float speedMultiplier)
-    {
-        speed *= speedMultiplier;
     }
 }

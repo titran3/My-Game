@@ -33,7 +33,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        ghost = GetComponent<Ghosts>();
+        ghost = FindObjectOfType<Ghosts>();
         audioSource = GetComponent<AudioSource>();
     }
 
@@ -52,10 +52,10 @@ public class GameManager : MonoBehaviour
                 Vector3 spawnPos = new Vector3(Random.Range(-spawnRangeX, spawnRangeX), 1, spawnRangeZ);
                 Instantiate(targets, spawnPos, targets.transform.rotation);
                 activeEnemies++;
-                yield return new WaitForSeconds(0.5f); // wait half a second between each target
+                yield return new WaitForSeconds(0.5f);
             }
 
-            yield return new WaitWhile(() => activeEnemies > 0); // Wait until all enemies are defeated
+            yield return new WaitWhile(() => activeEnemies > 0);
 
             currentWave++;
             if (currentWave == 2)
@@ -65,7 +65,7 @@ public class GameManager : MonoBehaviour
                 wave.SetText("Wave " + currentWave.ToString());
                 StartCoroutine(FadeIn(wave.GetComponent<TextMeshProUGUI>(), 0.5f, 1f));
                 targetsToSpawn = 60;
-                ghost.UpdateGhostSpeed(currentWave);
+                ghost.IncreaseSpeed(0.5f);
             }
             else if (currentWave == 3)
             {
@@ -74,7 +74,7 @@ public class GameManager : MonoBehaviour
                 wave.SetText("Wave " + currentWave.ToString());
                 StartCoroutine(FadeIn(wave.GetComponent<TextMeshProUGUI>(), 0.5f, 1f));
                 targetsToSpawn = 70;
-                ghost.UpdateGhostSpeed(currentWave);
+                ghost.IncreaseSpeed(0.5f);
             }
             else if (currentWave > 3)
             {
