@@ -65,7 +65,7 @@ public class GameManager : MonoBehaviour
                 wave.SetText("Wave " + currentWave.ToString());
                 StartCoroutine(FadeIn(wave.GetComponent<TextMeshProUGUI>(), 0.5f, 1f));
                 targetsToSpawn = 60;
-                ghost.IncreaseSpeed(0.5f);
+                ghost.speed *= currentWave;
             }
             else if (currentWave == 3)
             {
@@ -74,7 +74,7 @@ public class GameManager : MonoBehaviour
                 wave.SetText("Wave " + currentWave.ToString());
                 StartCoroutine(FadeIn(wave.GetComponent<TextMeshProUGUI>(), 0.5f, 1f));
                 targetsToSpawn = 70;
-                ghost.IncreaseSpeed(0.5f);
+                ghost.speed *= currentWave;
             }
             else if (currentWave > 3)
             {

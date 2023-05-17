@@ -9,7 +9,7 @@ public class Ghosts : MonoBehaviour
     private Rigidbody enemyRb;
     public ParticleSystem explosionParticle;
     public GameManager gameManager;
-    public int speed = 3;
+    public float speed = 0.5f;
 
     private Transform player;
     private float originalSpeed;
@@ -28,11 +28,6 @@ public class Ghosts : MonoBehaviour
         direction.Normalize();
         transform.position += direction * speed * Time.deltaTime;
 
-    }
-
-    public void IncreaseSpeed(float speedMultiplier)
-    {
-        speed = originalSpeed * speedMultiplier;
     }
 
     private void OnCollisionEnter(Collision other)
